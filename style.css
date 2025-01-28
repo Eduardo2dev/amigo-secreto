@@ -10,99 +10,77 @@
 body {
   background: #000;
   min-height: 100vh;
-  position: relative;
-  font-family: 'Inter', sans-serif; /* Definindo a fonte padrão */
+  font-family: 'Inter', sans-serif;
   color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 0 10px;
 }
 
-/* Ajustes de responsividade e centralização */
-@media (max-width: 768px) {
-  .content {
-    width: 90%; /* Menor largura para telas pequenas */
-    height: auto; /* Deixe a altura se ajustar automaticamente */
-    padding: 20px;
-    position: relative;
-    margin: 0 auto;
-  }
-
-  .content__main {
-    padding: 20px; /* Reduzir o padding em telas pequenas */
-    gap: 40px; /* Menos espaço entre os elementos */
-  }
-
-  .form__input {
-    width: 100%; /* Ocupa toda a largura da tela */
-    margin-bottom: 20px;
-  }
-
-  .button {
-    width: 100%; /* Botões ocupam toda a largura */
-    font-size: 20px; /* Ajuste no tamanho da fonte */
-    padding: 12px 0; /* Reduzir o padding nos botões */
-  }
-
-  .friends__container,
-  .prizeDraw__container {
-    width: 100%; /* Garantir que os containers ocupem toda a tela */
-    padding: 16px;
-  }
-
-  .section__title {
-    font-size: 7vw; /* Ajuste dinâmico com base na largura da tela */
-    margin-bottom: 40px; /* Menor margem para telas pequenas */
-  }
-
-  .form__label {
-    font-size: 18px; /* Ajuste no tamanho do texto */
-  }
-
-  .page__image {
-    width: 150px; /* Ajuste o tamanho da imagem no celular */
-    position: absolute;
-    top: 40px;
-    right: 10px;
-    z-index: 2;
-  }
-
-  .content__corner-rectangle {
-    width: 100%; /* A largura deve ser 100% para caber em telas pequenas */
-    right: 0;
-    bottom: -15px;
-  }
-}
-
-/* Estilos principais */
+/* Estilo principal para a área de conteúdo */
 .content {
   background-color: #000;
+  border-radius: 16px;
   border: 1px solid #1875e8;
-  filter: drop-shadow(0px 0px 30px #1875e8);
-  width: 75%;
-  margin: 0 auto;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1;
-  padding: 40px;
+  width: 100%;
+  max-width: 700px;
+  padding: 20px;
+  position: relative;
+  box-shadow: 0px 0px 30px rgba(24, 117, 232, 0.6);
 }
 
-.content__corner-rectangle {
-  background-color: #00f4bf;
-  position: absolute;
-  bottom: -15px;
-  width: 511px;
-  right: 32px;
-  height: 33px;
-  clip-path: polygon(0% 100%, 0% 50%, 4% 0%, 100% 0%, 100% 50%, 96% 100%);
-  z-index: 3;
+/* Título */
+.section__title {
+  color: #fff;
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 30px;
 }
 
-.content__main {
+.section__title > span {
+  color: #1875e8;
+}
+
+/* Formulário */
+.form {
   display: flex;
   flex-direction: column;
-  gap: 80px;
-  justify-content: start;
-  padding: 100px;
+  align-items: center;
+  gap: 20px;
+}
+
+.form__label {
+  color: #1875e8;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.form__input {
+  width: 100%;
+  padding: 12px;
+  font-size: 18px;
+  border: 1px solid #1875e8;
+  border-radius: 8px;
+  color: #fff;
+  background-color: transparent;
+  margin-bottom: 15px;
+}
+
+.form__input::placeholder {
+  color: #fff;
+  font-size: 16px;
+}
+
+/* Botões */
+.form__buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: 20px;
 }
 
 .button {
@@ -111,15 +89,11 @@ body {
   border-radius: 16px;
   color: #fff;
   cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 24px;
+  padding: 14px 24px;
+  font-size: 18px;
   font-weight: 700;
-  height: 52px;
-  padding: 16px 24px;
   text-align: center;
-  width: 208px;
+  width: 48%;
 }
 
 .primary {
@@ -131,88 +105,85 @@ body {
   color: #1875e8;
 }
 
-/* Estilos para os containers */
+.form__link {
+  color: #00f4bf;
+  cursor: pointer;
+  font-size: 18px;
+  text-decoration: underline;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Seção de resultados */
+.section--results {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-top: 30px;
+}
+
 .friends__container,
 .prizeDraw__container {
   border: 1px solid #1875e8;
   border-radius: 8px;
-  padding: 24px;
-  width: 453px;
+  padding: 16px;
+  background-color: transparent;
+  text-align: center;
 }
 
-.friends__container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 21px;
-  line-height: 160%;
-}
-
-.friends__container > p {
-  font-size: 21px;
-  line-height: 160%;
-}
-
-.friends__title {
-  color: #1875e8;
-  font-size: 24px;
-  font-weight: 700;
-  line-height: 110%;
-}
-
+.friends__title,
 .prizeDraw__title {
   color: #00f4bf;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 700;
-  line-height: 110%;
 }
 
-.page__image {
-  position: absolute;
-  top: 76px;
-  right: 0;
-  z-index: 2;
-}
-
-.form {
-  display: flex;
-  flex-direction: column;
-  font-family: 'Inter', sans-serif;
-}
-
-.form__buttons {
-  display: flex;
-  gap: 32px;
-}
-
-.form__input {
-  background-color: transparent;
-  border: 1px solid #1875e8;
-  border-radius: 8px;
+.friends__container > p,
+.prizeDraw__container > p {
+  font-size: 18px;
   color: #fff;
-  font-size: 21px;
-  padding: 8px 16px;
-  width: 517px;
-  margin-bottom: 32px;
 }
 
-.form__input::placeholder {
-  color: #fff;
-  font-size: 21px;
-}
+/* Responsividade para telas menores (celular) */
+@media (max-width: 768px) {
+  .content {
+    padding: 15px;
+    max-width: 100%;
+  }
 
-.form__label {
-  color: #1875e8;
-  font-size: 24px;
-  font-weight: 700;
-  margin-bottom: 16px;
-}
+  .section__title {
+    font-size: 28px;
+  }
 
-.form__link {
-  color: #00f4bf;
-  cursor: pointer;
-  font-size: 24px;
-  text-decoration: underline;
-  text-align: center;
-  line-height: 110%;
+  .form__input {
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  .form__label {
+    font-size: 16px;
+  }
+
+  .button {
+    font-size: 16px;
+    padding: 12px;
+  }
+
+  .form__buttons {
+    flex-direction: column;
+  }
+
+  .button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .page__image {
+    width: 100px;
+    height: auto;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 1;
+  }
 }
