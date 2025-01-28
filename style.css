@@ -1,61 +1,99 @@
+/* Reset e normalização */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   background: #000;
   min-height: 100vh;
   position: relative;
-}
-
-.background__detail {
-  background-color: #00f4bf;
-  height: calc(100% - 389px);
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 195px;
-  z-index: 0;
-}
-
-.button {
-  align-items: center;
-  background-color: transparent;
-  border: none;
-  border-radius: 16px;
+  font-family: 'Inter', sans-serif; /* Definindo a fonte padrão */
   color: #fff;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  font-size: 24px;
-  font-weight: 700;
-  gap: 10px;
-  height: 52px;
-  justify-content: center;
-  line-height: normal;
-  padding: 16px 24px;
-  text-align: center;
-  width: 208px;
 }
 
+/* Ajustes de responsividade e centralização */
+@media (max-width: 768px) {
+  .content {
+    width: 90%; /* Menor largura para telas pequenas */
+    height: auto; /* Deixe a altura se ajustar automaticamente */
+    padding: 20px;
+    position: relative;
+    margin: 0 auto;
+  }
+
+  .content__main {
+    padding: 20px; /* Reduzir o padding em telas pequenas */
+    gap: 40px; /* Menos espaço entre os elementos */
+  }
+
+  .form__input {
+    width: 100%; /* Ocupa toda a largura da tela */
+    margin-bottom: 20px;
+  }
+
+  .button {
+    width: 100%; /* Botões ocupam toda a largura */
+    font-size: 20px; /* Ajuste no tamanho da fonte */
+    padding: 12px 0; /* Reduzir o padding nos botões */
+  }
+
+  .friends__container,
+  .prizeDraw__container {
+    width: 100%; /* Garantir que os containers ocupem toda a tela */
+    padding: 16px;
+  }
+
+  .section__title {
+    font-size: 7vw; /* Ajuste dinâmico com base na largura da tela */
+    margin-bottom: 40px; /* Menor margem para telas pequenas */
+  }
+
+  .form__label {
+    font-size: 18px; /* Ajuste no tamanho do texto */
+  }
+
+  .page__image {
+    width: 150px; /* Ajuste o tamanho da imagem no celular */
+    position: absolute;
+    top: 40px;
+    right: 10px;
+    z-index: 2;
+  }
+
+  .content__corner-rectangle {
+    width: 100%; /* A largura deve ser 100% para caber em telas pequenas */
+    right: 0;
+    bottom: -15px;
+  }
+}
+
+/* Estilos principais */
 .content {
   background-color: #000;
   border: 1px solid #1875e8;
   filter: drop-shadow(0px 0px 30px #1875e8);
-  height: 871px;
-  left: 50%;
+  width: 75%;
   margin: 0 auto;
   position: absolute;
   top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
-  width: 75%;
   z-index: 1;
+  padding: 40px;
 }
 
 .content__corner-rectangle {
   background-color: #00f4bf;
-  bottom: -15px;
-  clip-path: polygon(0% 100%, 0% 50%, 4% 0%, 100% 0%, 100% 50%, 96% 100%);
-  height: 33px;
   position: absolute;
-  right: 32px;
+  bottom: -15px;
   width: 511px;
+  right: 32px;
+  height: 33px;
+  clip-path: polygon(0% 100%, 0% 50%, 4% 0%, 100% 0%, 100% 50%, 96% 100%);
   z-index: 3;
 }
 
@@ -67,25 +105,51 @@ body {
   padding: 100px;
 }
 
-.friends__container {
+.button {
+  background-color: transparent;
+  border: none;
+  border-radius: 16px;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
   align-items: center;
+  font-size: 24px;
+  font-weight: 700;
+  height: 52px;
+  padding: 16px 24px;
+  text-align: center;
+  width: 208px;
+}
+
+.primary {
+  background-color: #1875e8;
+}
+
+.secondary {
+  background-color: #fff;
+  color: #1875e8;
+}
+
+/* Estilos para os containers */
+.friends__container,
+.prizeDraw__container {
   border: 1px solid #1875e8;
   border-radius: 8px;
-  color: #fff;
-  display: flex;
-  font-size: 21px;
-  font-weight: 400;
-  justify-content: center;
-  line-height: 160%;
-  margin-top: 1rem;
   padding: 24px;
   width: 453px;
 }
 
-.friends__container > p {
-  color: #fff;
+.friends__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 21px;
-  font-weight: 400;
+  line-height: 160%;
+}
+
+.friends__container > p {
+  font-size: 21px;
   line-height: 160%;
 }
 
@@ -96,33 +160,40 @@ body {
   line-height: 110%;
 }
 
+.prizeDraw__title {
+  color: #00f4bf;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 110%;
+}
+
+.page__image {
+  position: absolute;
+  top: 76px;
+  right: 0;
+  z-index: 2;
+}
+
 .form {
   display: flex;
   flex-direction: column;
-  font-family: Inter;
-  font-style: normal;
+  font-family: 'Inter', sans-serif;
 }
 
 .form__buttons {
-  align-items: center;
   display: flex;
   gap: 32px;
 }
 
 .form__input {
-  align-items: center;
   background-color: transparent;
   border: 1px solid #1875e8;
   border-radius: 8px;
   color: #fff;
-  display: flex;
   font-size: 21px;
-  font-weight: 400;
-  height: 56px;
-  margin-bottom: 32px;
-  outline: none;
   padding: 8px 16px;
   width: 517px;
+  margin-bottom: 32px;
 }
 
 .form__input::placeholder {
@@ -134,7 +205,6 @@ body {
   color: #1875e8;
   font-size: 24px;
   font-weight: 700;
-  line-height: 110%;
   margin-bottom: 16px;
 }
 
@@ -142,65 +212,7 @@ body {
   color: #00f4bf;
   cursor: pointer;
   font-size: 24px;
-  font-weight: 400;
-  line-height: 110%;
+  text-decoration: underline;
   text-align: center;
-  text-decoration-line: underline;
-}
-
-.page__image {
-  position: absolute;
-  right: 0;
-  top: 76px;
-  z-index: 2;
-  pointer-events: none;
-}
-
-.prizeDraw__container {
-  color: #fff;
-  font-size: 21px;
-  font-style: italic;
-  font-weight: 700;
-  height: 199px;
-  line-height: 160%;
-  margin-top: 1rem;
-}
-
-.prizeDraw__title {
-  color: #00f4bf;
-  font-size: 24px;
-  font-weight: 700;
   line-height: 110%;
-}
-
-.primary {
-  background-color: #1875e8;
-  color: #fff;
-}
-
-.section--results {
-  align-items: start;
-  display: flex;
-  font-family: Inter;
-  font-style: normal;
-  gap: 48px;
-}
-
-.section__title {
-  color: #fff;
-  font-family: Chakra Petch;
-  font-size: 88px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 80%;
-  margin: 0 0 80px 0;
-}
-
-.section__title > span {
-  color: #1875e8;
-}
-
-.secondary {
-  background-color: #fff;
-  color: #1875e8;
 }
